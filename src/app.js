@@ -16,8 +16,8 @@ const morgan = require('morgan');
 const errorHandler = require( `${cwd}/src/middleware/500.js`);
 const notFound = require( `${cwd}/src/middleware/404.js` );
 const v1Router = require( `${cwd}/src/api/v1.js` );
-const swagger = require(`${cwd}/src/api/swagger.js`);
-const TodoModel = require('./models/todo/todo-model.js')
+// const swagger = require(`${cwd}/src/api/swagger.js`);
+const TodoModel = require('./models/todo/todo-model.js');
 const todoModel = new TodoModel();
 
 const { buildSchema } = require('graphql');
@@ -49,7 +49,7 @@ const simpleResolver = {
   todo: getTodo,
   todos: getTodos,
   post: addTodo,
-}
+};
 
 /**
  * Creates a single todo
@@ -85,7 +85,7 @@ async function getTodos(args) {
 const graph = expressGraphql({
   schema: simpleSchema,
   rootValue: simpleResolver,
-  graphiql: true
+  graphiql: true,
 });
 
 // App Level MW
