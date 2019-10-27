@@ -12,8 +12,8 @@ describe('api server', () => {
 
   it('should respond with a 404 on an invalid route', () => {
 
-      let one = 1;
-      expect(one).toEqual(1);
+    let one = 1;
+    expect(one).toEqual(1);
   });
 
 });

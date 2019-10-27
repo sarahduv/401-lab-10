@@ -10,7 +10,7 @@
 
 describe('Players Model', () => {
   it('can post() a new player', () => {
-    let obj = {name:'John', bats:'R',throws:'R',position:'C',team:'Bunnies'};
+    // let obj = {name:'John', bats:'R',throws:'R',position:'C',team:'Bunnies'};
     expect(true).toBe(true);
   });
   

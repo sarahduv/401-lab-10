@@ -2,7 +2,7 @@
 const fs = require('fs');
 const util = require('util');
 const readdir = util.promisify(fs.readdir);
-const state = util.promisify(fs.stat);
+// const state = util.promisify(fs.stat);
 
 const modelsFolder = `${__dirname}/../models`;
 
@@ -30,12 +30,12 @@ const load = (req,res,next) => {
 
 const list = () => {
   return readdir(modelsFolder)
-  .then(contents =>
-    contents.filter((entry) =>
-      fs.lstatSync(`${modelsFolder}/${entry}`).isDirectory() && fs.statSync(`${modelsFolder}/${entry}/${entry}-model.js`)
+    .then(contents =>
+      contents.filter((entry) =>
+        fs.lstatSync(`${modelsFolder}/${entry}`).isDirectory() && fs.statSync(`${modelsFolder}/${entry}/${entry}-model.js`)
+      )
     )
-  )
-  .catch(console.error);
+    .catch(console.error);
 };
 
 module.exports = {load,list};
